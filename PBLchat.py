@@ -57,19 +57,4 @@ def trans_msg(msg , sender ,lang_codeof=groupdata ):
 
 ########################## FLASK  APP STARTS HERE  ##########################
 
-app = Flask(__name__)
-
-@app.route("/")
-def hello():
-    return "Hello, World!"
-    
-
-@app.route("/sms", methods=['POST'])
-def sms_reply():
-    msg = request.form.get('Body').lower()
-    am = msg
-    remote_number = request.values.get("From", "").split(":")[1]    
-    return trans_msg(am,remote_number)
-
-if __name__ == "__main__":
-    app.run(debug=True)
+ 
